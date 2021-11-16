@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-service-kub
+  labels:
+    app: spring-service-kub
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-service-kub
+  template:
+    metadata:
+      labels:
+        app: spring-service-kub
+    spec:
+      containers:
+        - name: spring-service-kub
+          image: localhost:32000/spring-service-kub:latest
+          ports:
+            - containerPort: 8080
